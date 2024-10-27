@@ -7,11 +7,14 @@ public class PlayerControl : MonoBehaviour
     private float speed = 10.0f;
     private float zBound = 10;
     private Rigidbody playerRb;
+   //private GameManager playerControllerScript;
+
 
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
+        //playerControllerScript = GameObject.Find("Player").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -19,16 +22,18 @@ public class PlayerControl : MonoBehaviour
     {
         MovePlayer();
         ConstrainPlayerPosition();
-    
+        
     }
 
     void MovePlayer()
     {
-        float horizonalInput = Input.GetAxis("Horizontal");
+        //if (playerControllerScript.gameover == false){
+            float horizonalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        playerRb.AddForce(Vector3.forward * speed * verticalInput);
-        playerRb.AddForce(Vector3.right * speed * horizonalInput);
+            playerRb.AddForce(Vector3.forward * speed * verticalInput);
+            playerRb.AddForce(Vector3.right * speed * horizonalInput);
+         //}
     }
 
     void ConstrainPlayerPosition()

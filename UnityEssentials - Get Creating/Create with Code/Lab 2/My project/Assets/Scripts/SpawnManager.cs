@@ -9,11 +9,13 @@ public class SpawnManager : MonoBehaviour
     private float spawnPosZ = 20;
     private float startDelay = 2;
     private float spawnInterval = 2.5f;
+    //private GameManager playerControllerScript;
 
     // Start is called before the first frame update
     void Start()
     {
         InvokeRepeating("spawnRandomEnemy", startDelay, spawnInterval);
+        // playerControllerScript = GameObject.Find("Player").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -22,9 +24,11 @@ public class SpawnManager : MonoBehaviour
     
     }
     void spawnRandomEnemy(){
-    Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
+        //if (playerControllerScript.gameOver == false){
+            Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
             int enemyIndex = Random.Range(0, enemyPrefabs.Length);
             Instantiate(enemyPrefabs[enemyIndex], spawnPos, enemyPrefabs[enemyIndex].transform.rotation);
 
+   // }
     }
 }

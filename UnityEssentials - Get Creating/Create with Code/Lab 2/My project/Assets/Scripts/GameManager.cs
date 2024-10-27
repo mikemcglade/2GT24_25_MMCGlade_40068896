@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 private int lives = 3;
+//public bool gameOver = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,7 @@ lives += value;
 if (lives <= 0){
     Debug.Log("Game Over");
     lives = 0;
+    //gameOver = true;
     }
 
 Debug.Log("Lives = " + lives);
