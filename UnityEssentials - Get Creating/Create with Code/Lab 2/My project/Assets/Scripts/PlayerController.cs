@@ -7,6 +7,8 @@ public class PlayerControl : MonoBehaviour
     private float speed = 10.0f;
     private float zBound = 10;
     private Rigidbody playerRb;
+    public GameObject projectilePrefab;
+    public Transform projectileSpawnPoint;
    //private GameManager playerControllerScript;
 
 
@@ -22,6 +24,10 @@ public class PlayerControl : MonoBehaviour
     {
         MovePlayer();
         ConstrainPlayerPosition();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(projectilePrefab, projectileSpawnPoint.position, projectilePrefab.transform.rotation);
+        }
         
     }
 

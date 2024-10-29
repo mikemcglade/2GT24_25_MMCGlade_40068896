@@ -19,10 +19,19 @@ public class DetectCollisions : MonoBehaviour
     }
 
     private void OnTriggerEnter (Collider other){
-        if (other.CompareTag("Player")){
-            // Debug.Log("Game Over");
+
+    
+
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("Game Over");
             gameManager.AddLives(-1);
             Destroy(gameObject);
+        }
+        else 
+        {
+            Destroy(gameObject);
+            Destroy(other.gameObject);
         }
     }
 }
