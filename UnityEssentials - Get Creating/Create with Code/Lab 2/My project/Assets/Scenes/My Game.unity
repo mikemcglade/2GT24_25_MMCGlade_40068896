@@ -165,7 +165,7 @@ Transform:
   m_GameObject: {fileID: 265087503}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.767298, y: 1.9699793, z: -1.4721874}
+  m_LocalPosition: {x: 0, y: 0.86, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -183,10 +183,10 @@ GameObject:
   - component: {fileID: 354601904}
   - component: {fileID: 354601903}
   - component: {fileID: 354601902}
-  - component: {fileID: 354601907}
   - component: {fileID: 354601908}
   - component: {fileID: 354601906}
   - component: {fileID: 354601911}
+  - component: {fileID: 354601912}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -308,20 +308,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &354601907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 354601901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40a314d95968d4d9b89965519beee464, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 8102746377321594267, guid: c602ef8ff775646359d904edb0dafcba, type: 3}
-  projectileSpawnPoint: {fileID: 1105818258}
 --- !u!114 &354601908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,6 +341,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &354601912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354601901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8166ce5204bd84f12a0d88ad2dacf67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 8102746377321594267, guid: c602ef8ff775646359d904edb0dafcba, type: 3}
+  projectileSpawnPoint: {fileID: 1105818258}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,7 +754,7 @@ Transform:
   m_GameObject: {fileID: 1105818257}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.15, y: -0.06, z: 1.58}
+  m_LocalPosition: {x: 0, y: 0.1, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

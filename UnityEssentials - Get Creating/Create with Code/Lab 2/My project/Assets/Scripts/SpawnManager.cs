@@ -25,7 +25,7 @@ public class SpawnManager : MonoBehaviour
     }
     void spawnRandomEnemy(){
         //if (playerControllerScript.gameOver == false){
-            Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
+            Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0.5f, spawnPosZ);
             int enemyIndex = Random.Range(0, enemyPrefabs.Length);
             Instantiate(enemyPrefabs[enemyIndex], spawnPos, enemyPrefabs[enemyIndex].transform.rotation);
 
