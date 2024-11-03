@@ -9,14 +9,14 @@ public class PlayerControl : MonoBehaviour
     private Rigidbody playerRb;
     public GameObject projectilePrefab;
     public Transform projectileSpawnPoint;
-   //private GameManager playerControllerScript;
+   //private GameManager playerControlScript;
 
 
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
-        //playerControllerScript = GameObject.Find("Player").GetComponent<GameManager>();
+        //playerControlScript = GameObject.Find("Player").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -33,13 +33,14 @@ public class PlayerControl : MonoBehaviour
 
     void MovePlayer()
     {
-        //if (playerControllerScript.gameover == false){
+       // if (playerControlScript.isGameActive == true)
+        {
             float horizonalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+            float verticalInput = Input.GetAxis("Vertical");
 
             playerRb.AddForce(Vector3.forward * speed * verticalInput);
             playerRb.AddForce(Vector3.right * speed * horizonalInput);
-         //}
+         }
     }
 
     void ConstrainPlayerPosition()
@@ -48,7 +49,7 @@ public class PlayerControl : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, -zBound);
         }
-        if (transform.position.z > zBound)
+    if (transform.position.z > zBound)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, zBound);
         }
