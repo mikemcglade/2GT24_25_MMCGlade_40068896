@@ -6,6 +6,8 @@ public class PlayerControl : MonoBehaviour
 {
     private float speed = 10.0f;
     private float zBound = 10;
+    public float fireRate = 1f;
+    public float canFire = -1f;
     private Rigidbody playerRb;
     public GameObject projectilePrefab;
     public Transform projectileSpawnPoint;
@@ -24,8 +26,14 @@ public class PlayerControl : MonoBehaviour
     {
         MovePlayer();
         ConstrainPlayerPosition();
-        if (Input.GetKeyDown(KeyCode.Space))
+
+        // if the player presses space bar, fire a bullet
+
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > canFire)
         {
+        // add bullet cool down period
+            canFire = Time.time + fireRate;
+
             Instantiate(projectilePrefab, projectileSpawnPoint.position, projectilePrefab.transform.rotation);
         }
         
