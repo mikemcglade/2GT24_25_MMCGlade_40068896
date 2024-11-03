@@ -31,12 +31,17 @@ public class PlayerControl : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && Time.time > canFire)
         {
-        // add bullet cool down period
-            canFire = Time.time + fireRate;
-
-            Instantiate(projectilePrefab, projectileSpawnPoint.position, projectilePrefab.transform.rotation);
+            FireBullet();
         }
         
+    }
+    private void FireBullet()
+    {
+        // add bullet cool down period
+        canFire = Time.time + fireRate;
+
+        Instantiate(projectilePrefab, projectileSpawnPoint.position, projectilePrefab.transform.rotation);
+
     }
 
     void MovePlayer()
