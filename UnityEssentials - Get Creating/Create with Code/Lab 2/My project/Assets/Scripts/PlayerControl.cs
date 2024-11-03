@@ -11,6 +11,8 @@ public class PlayerControl : MonoBehaviour
     private Rigidbody playerRb;
     public GameObject projectilePrefab;
     public Transform projectileSpawnPoint;
+    private bool isInvincible = false;
+
    //private GameManager playerControlScript;
 
 
@@ -65,6 +67,24 @@ public class PlayerControl : MonoBehaviour
     if (transform.position.z > zBound)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, zBound);
+        }
+    }
+
+    public void SetInvincible(bool invincible)
+    {
+        isInvincible = invincible;
+    }
+
+    public bool IsInvincible()
+    {
+        return isInvincible;
+    }
+
+     public void TakeDamage(int damage)
+    {
+        if (!isInvincible)
+        {
+            // Apply damage logic here
         }
     }
 }
