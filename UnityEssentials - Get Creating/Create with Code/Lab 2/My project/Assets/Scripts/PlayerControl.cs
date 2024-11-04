@@ -73,6 +73,7 @@ public class PlayerControl : MonoBehaviour
     public void SetInvincible(bool invincible)
     {
         isInvincible = invincible;
+        Debug.Log ("Invincible");
     }
 
     public bool IsInvincible()
