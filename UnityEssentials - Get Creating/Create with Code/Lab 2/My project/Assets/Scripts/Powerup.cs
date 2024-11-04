@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class Powerup : MonoBehaviour
 {
-    public float duration = 7f;
+    public float duration = 3f;
     public GameObject visualCue;
-    public float visualCueTime = 2f;
+    public float visualCueTime = 1f;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -18,6 +18,7 @@ public class Powerup : MonoBehaviour
             {
                 StartCoroutine(ApplyInvincibility(playerControlScript));
                 gameObject.SetActive(false);
+                Debug.Log ("Powerup collected");
             }
         }
     }
@@ -36,6 +37,7 @@ public class Powerup : MonoBehaviour
         visualCue.SetActive(false);
         
         Destroy(gameObject);
+        Debug.Log ("Powerup ended");
     }
     
     // Start is called before the first frame update
