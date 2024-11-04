@@ -187,6 +187,7 @@ GameObject:
   - component: {fileID: 354601906}
   - component: {fileID: 354601911}
   - component: {fileID: 354601912}
+  - component: {fileID: 354601913}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -357,6 +358,21 @@ MonoBehaviour:
   canFire: -1
   projectilePrefab: {fileID: 8102746377321594267, guid: c602ef8ff775646359d904edb0dafcba, type: 3}
   projectileSpawnPoint: {fileID: 1105818258}
+--- !u!114 &354601913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354601901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72a1dc7212cea4b8885ac7f39dd7a850, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shrunkScale: {x: 0.5, y: 0.001, z: 0.5}
+  shrinkDuration: 5
+  cooldownDuration: 5
 --- !u!1 &371077110
 GameObject:
   m_ObjectHideFlags: 0

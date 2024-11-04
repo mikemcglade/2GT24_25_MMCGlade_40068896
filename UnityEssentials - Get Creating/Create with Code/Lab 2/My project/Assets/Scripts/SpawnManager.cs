@@ -29,7 +29,7 @@ public class SpawnManager : MonoBehaviour
         //while(isGameActive)
         //if (gameManagerScript.gameOver == false)
        // {
-            Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0.5f, spawnPosZ);
+            Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 1.1f, spawnPosZ);
             int enemyIndex = Random.Range(0, enemyPrefabs.Length);
             Instantiate(enemyPrefabs[enemyIndex], spawnPos, enemyPrefabs[enemyIndex].transform.rotation);
 
