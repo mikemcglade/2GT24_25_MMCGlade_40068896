@@ -64,16 +64,15 @@ public class PlayerControl : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, -zBound);
         }
-    if (transform.position.z > zBound)
-        {
-            transform.position = new Vector3(transform.position.x, transform.position.y, zBound);
-        }
+    //if (transform.position.z > zBound)
+    //    {
+    //        transform.position = new Vector3(transform.position.x, transform.position.y, zBound);
+    //    }
     }
 
     public void SetInvincible(bool invincible)
     {
         isInvincible = invincible;
-        Debug.Log ("Invincible");
     }
 
     public bool IsInvincible()
