@@ -77,6 +77,7 @@ public class PlayerControl : MonoBehaviour
         {
             hasPowerup = true;
             Destroy(other.gameObject);
+            StartCoroutine(PowerupCountdownRoutine());
         }
     }
 
@@ -87,6 +88,12 @@ public class PlayerControl : MonoBehaviour
             Destroy(gameObject);
             Debug.Log("Collided with " + collision.gameObject.name + " with powerup set to " + hasPowerup);
         }
+    }
+
+    IEnumerator PowerupCountdownRoutine()
+    {
+        yield return new WaitForSeconds(7);
+        hasPowerup = false;
     }
 
     //public void SetInvincible(bool invincible)
