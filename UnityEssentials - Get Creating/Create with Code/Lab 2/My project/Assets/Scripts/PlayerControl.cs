@@ -11,7 +11,8 @@ public class PlayerControl : MonoBehaviour
     private Rigidbody playerRb;
     public GameObject projectilePrefab;
     public Transform projectileSpawnPoint;
-    private bool isInvincible = false;
+    public bool hasPowerup;
+    //private bool isInvincible = false;
 
    //private GameManager playerControlScript;
 
@@ -70,21 +71,30 @@ public class PlayerControl : MonoBehaviour
     //    }
     }
 
-    public void SetInvincible(bool invincible)
+    private void OnTriggerEnter(Collider other)
     {
-        isInvincible = invincible;
-    }
-
-    public bool IsInvincible()
-    {
-        return isInvincible;
-    }
-
-     public void TakeDamage(int damage)
-    {
-        if (!isInvincible)
+        if(other.CompareTag("Powerup"))
         {
-            // Apply damage logic here
+            hasPowerup = true;
+            Destroy(other.gameObject);
         }
     }
+
+    //public void SetInvincible(bool invincible)
+//    {
+  //      isInvincible = invincible;
+    //}
+
+ //   public bool IsInvincible()
+   // {
+     //   return isInvincible;
+    //}
+
+//     public void TakeDamage(int damage)
+  //  {
+    //    if (!isInvincible)
+      //  {
+            // Apply damage logic here
+        //}
+    //}
 }
