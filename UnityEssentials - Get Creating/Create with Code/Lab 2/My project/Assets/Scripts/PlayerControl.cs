@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    private float speed = 10.0f;
+    private float speed = 5.0f;
     private float zBound = 10;
     public float fireRate = 1f;
     public float canFire = -1f;
@@ -77,6 +77,15 @@ public class PlayerControl : MonoBehaviour
         {
             hasPowerup = true;
             Destroy(other.gameObject);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Enemy") && hasPowerup)
+        {
+            Destroy(gameObject);
+            Debug.Log("Collided with " + collision.gameObject.name + " with powerup set to " + hasPowerup);
         }
     }
 
