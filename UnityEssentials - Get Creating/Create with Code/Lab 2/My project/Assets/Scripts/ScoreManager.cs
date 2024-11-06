@@ -1,19 +1,22 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
-    Text scoreText;
+    [SerializeField] TextMeshProUGUI scoreText;
+    int currentScore;
 
     // Start is called before the first frame update
     void Start()
     {
-        scoreText = GetComponent<Text>();
-        AddPoint();
+        scoreText = GetComponent<TextMeshProUGUI>();
+  
     }
 
-   void AddPoint()
+   public void AddPoint()
    {
-        scoreText.text = "AddPoint";
+        currentScore++;
+        scoreText.text = currentScore.ToString();
    }
 }

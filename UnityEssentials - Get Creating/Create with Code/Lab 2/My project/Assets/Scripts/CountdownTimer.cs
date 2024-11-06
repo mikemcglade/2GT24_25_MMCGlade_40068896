@@ -4,7 +4,7 @@ using TMPro;
 
 public class CountdownTimer : MonoBehaviour
 {
-    public float totalTime = 60f; // Total time in seconds
+    public float totalTime = 80f; // Total time in seconds
     [SerializeField] TextMeshProUGUI timerText; // Reference to the UI Text component
 
     private float timeRemaining;

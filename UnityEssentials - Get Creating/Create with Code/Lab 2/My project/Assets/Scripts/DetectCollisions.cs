@@ -5,6 +5,7 @@ using UnityEngine;
 public class DetectCollisions : MonoBehaviour
 {
     private GameManager gameManager;
+    //[SerializeField] ScoreManager scoreManager;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,7 @@ public class DetectCollisions : MonoBehaviour
         }
         else if (other.CompareTag("Bullet"))
         {
+            //scoreManager.AddPoint();
             gameManager.AddScore(5);
             Destroy(gameObject);
             Destroy(other.gameObject);
