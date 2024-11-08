@@ -540,6 +540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc3e3a9905126462ab1e9bceaa3cdbb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 1316394661}
   targets:
   - {fileID: 7781714570258817959, guid: e544fd297666c47c980cb98aa73fc097, type: 3}
   - {fileID: 6738977618946124595, guid: f4b26e1d68c344d06ab6e92622e5c22e, type: 3}
