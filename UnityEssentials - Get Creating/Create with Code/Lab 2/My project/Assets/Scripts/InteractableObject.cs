@@ -7,13 +7,16 @@ public class InteractableObject : MonoBehaviour
  private bool isPlayerInRange = false;
  private Renderer objectRenderer;
  private Material originalMaterial;
- public Material highlightMaterial; // Assign this in the Inspector
+ public Material highlightMaterial; // highlight colour is assigned in the Inspector
+
+public GameObject interactionPanel1; // Reference to the panel containing UI elements
+
 
     private void Update()
     {
         if (isPlayerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            Interact();
+            ShowInteractionUI();
         }
     }
 
@@ -21,11 +24,20 @@ private void Start()
     {
         objectRenderer = GetComponent<Renderer>();
         originalMaterial = objectRenderer.material; // Store the original material
+
+        interactionPanel1.SetActive(false);
     }
 
-    private void Interact()
+    private void ShowInteractionUI()
     {
-        Debug.Log("Interacted with " + gameObject.name);
+        // Show the panel
+        interactionPanel1.SetActive(true);
+
+
+        // hide after 5 seconds
+
+         StartCoroutine(HideAfterDelay());
+        
         // Add additional interaction logic here (e.g., opening doors, picking up items)
     }
 
@@ -57,5 +69,16 @@ private void Start()
         {
             objectRenderer.material = originalMaterial; // Revert to original material
         }
+    }
+
+    private IEnumerator HideAfterDelay()
+{
+    yield return new WaitForSeconds(5f);
+    HideInteractionUI();
+}
+
+        private void HideInteractionUI()
+    {
+        interactionPanel1.SetActive(false);
     }
 }
