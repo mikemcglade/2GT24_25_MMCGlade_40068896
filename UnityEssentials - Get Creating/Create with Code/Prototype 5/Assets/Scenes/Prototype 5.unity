@@ -542,6 +542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1316394661}
+  gameOverText: {fileID: 1419697156}
   targets:
   - {fileID: 7781714570258817959, guid: e544fd297666c47c980cb98aa73fc097, type: 3}
   - {fileID: 6738977618946124595, guid: f4b26e1d68c344d06ab6e92622e5c22e, type: 3}
@@ -796,7 +797,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1419697155
 RectTransform:
   m_ObjectHideFlags: 0
