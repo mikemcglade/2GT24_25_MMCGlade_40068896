@@ -31,12 +31,14 @@ public class DetectCollisions : MonoBehaviour
         }
         else if (other.CompareTag("Bullet"))
         {
+      
             //scoreManager.AddPoint();
             gameManager.AddScore(pointValue);
             Destroy(gameObject);
             Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
 
             Destroy(other.gameObject);
+
         }
     }
 }

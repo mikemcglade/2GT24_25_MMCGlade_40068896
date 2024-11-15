@@ -26,7 +26,7 @@ public class SpawnManager : MonoBehaviour
     }
     void spawnRandomEnemy()
     {
-        //while(isGameActive)
+        //while(gameisGameActive)
         //if (gameManagerScript.gameOver == false)
        // {
             Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 1.1f, spawnPosZ);
