@@ -1,16 +1,19 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-private int score = 0;
+private int score;
+public TextMeshProUGUI scoreText;
 private int lives = 3;
 public bool gameOver = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        score = 0;
+       
     }
 
     // Update is called once per frame
@@ -37,6 +40,7 @@ public void AddScore(int value)
 {
     score += value;
     Debug.Log("Score = " + score);
+    scoreText.text = "Score: " + score;
 }
 
 }
