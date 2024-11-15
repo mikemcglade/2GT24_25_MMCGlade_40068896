@@ -6,6 +6,7 @@ public class DetectCollisions : MonoBehaviour
 {
     private GameManager gameManager;
     public int pointValue;
+    public ParticleSystem explosionParticle;
     //[SerializeField] ScoreManager scoreManager;
 
     // Start is called before the first frame update
@@ -33,6 +34,8 @@ public class DetectCollisions : MonoBehaviour
             //scoreManager.AddPoint();
             gameManager.AddScore(pointValue);
             Destroy(gameObject);
+            Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
+
             Destroy(other.gameObject);
         }
     }
