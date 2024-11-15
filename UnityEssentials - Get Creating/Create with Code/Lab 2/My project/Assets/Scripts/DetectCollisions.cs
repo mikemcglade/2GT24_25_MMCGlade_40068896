@@ -7,6 +7,7 @@ public class DetectCollisions : MonoBehaviour
     private GameManager gameManager;
     public int pointValue;
     public ParticleSystem explosionParticle;
+    private bool hasCollided = false;
     //[SerializeField] ScoreManager scoreManager;
 
     // Start is called before the first frame update
@@ -23,9 +24,12 @@ public class DetectCollisions : MonoBehaviour
 
     private void OnTriggerEnter (Collider other)
     {
+        Debug.Log("Collision detected with " + other.tag);
 
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !hasCollided)
         {
+            Debug.Log("Player collision processed");
+            hasCollided = true;
             gameManager.AddLives(-1);
             Destroy(gameObject);
         }
