@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
 private int score;
 public TextMeshProUGUI scoreText;
+public TextMeshProUGUI gameOverText;
+
 private int lives = 3;
 public bool gameOver = false;
 
@@ -13,6 +15,10 @@ public bool gameOver = false;
     void Start()
     {
         score = 0;
+        AddScore(0);
+        AddLives(3);
+
+        gameOverText.gameObject.SetActive(true);
        
     }
 
