@@ -1316,6 +1316,7 @@ MonoBehaviour:
   scoreText: {fileID: 0}
   gameOverText: {fileID: 0}
   isGameActive: 0
+  isPlayerInvincible: 0
   enemyPrefabs:
   - {fileID: 3523268836644821977, guid: c2c6c59176f8342538aece44813603c8, type: 3}
   - {fileID: 3018631650035655564, guid: d9b120a679aa9413c98f2beeb51a1a47, type: 3}
@@ -2842,6 +2843,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 709148797}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &714204149 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 184501908209223643, guid: bee8939dc8a3649ef945c00eb204e481, type: 3}
+  m_PrefabInstance: {fileID: 1046989497}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &714204153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714204149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef1cbe741d2fb4e3991e8de645c4b83e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invincibilityDuration: 5
 --- !u!1 &743818741
 GameObject:
   m_ObjectHideFlags: 0
@@ -4110,7 +4129,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 184501908209223643, guid: bee8939dc8a3649ef945c00eb204e481, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 714204153}
   m_SourcePrefab: {fileID: 100100000, guid: bee8939dc8a3649ef945c00eb204e481, type: 3}
 --- !u!1 &1105818257
 GameObject:
@@ -5046,6 +5068,7 @@ MonoBehaviour:
   scoreText: {fileID: 373235919}
   gameOverText: {fileID: 1612394917}
   isGameActive: 0
+  isPlayerInvincible: 0
   enemyPrefabs:
   - {fileID: 3523268836644821977, guid: c2c6c59176f8342538aece44813603c8, type: 3}
   - {fileID: 3018631650035655564, guid: d9b120a679aa9413c98f2beeb51a1a47, type: 3}

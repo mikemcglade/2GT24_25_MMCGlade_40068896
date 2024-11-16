@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI gameOverText;
     public bool isGameActive;
+    public bool isPlayerInvincible = false;
+    private Coroutine invincibilityCoroutine;
+
+
     public GameObject[] enemyPrefabs;
     private float spawnRangeX = 16;
     private float spawnPosZ = 20;
@@ -85,5 +89,29 @@ public class GameManager : MonoBehaviour
         Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 1.1f, spawnPosZ);
         int enemyIndex = Random.Range(0, enemyPrefabs.Length);
         Instantiate(enemyPrefabs[enemyIndex], spawnPos, enemyPrefabs[enemyIndex].transform.rotation);
+    }
+
+    public void SetInvincibility(bool status)
+    {
+        isPlayerInvincible = status;
+    }
+
+     public void ActivateInvincibility(float duration)
+    {
+        if (invincibilityCoroutine != null)
+        {
+            StopCoroutine(invincibilityCoroutine);
+        }
+        invincibilityCoroutine = StartCoroutine(InvincibilityTimer(duration));
+    }
+
+    private IEnumerator InvincibilityTimer(float duration)
+    {
+        isPlayerInvincible = true;
+        Debug.Log("Invincibility activated");
+        yield return new WaitForSeconds(duration);
+        isPlayerInvincible = false;
+        Debug.Log("Invincibility deactivated");
+        invincibilityCoroutine = null;
     }
 }

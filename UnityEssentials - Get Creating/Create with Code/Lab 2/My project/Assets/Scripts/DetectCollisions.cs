@@ -22,27 +22,30 @@ public class DetectCollisions : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter (Collider other)
+private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Collision detected with " + other.tag);
-
         if (other.CompareTag("Player") && !hasCollided)
         {
             Debug.Log("Player collision processed");
             hasCollided = true;
-            gameManager.AddLives(-1);
+            if (!gameManager.isPlayerInvincible)
+            {
+                gameManager.AddLives(-1);
+                Debug.Log("Player lost a life");
+            }
+            else
+            {
+                Debug.Log("Player is invincible, no life lost");
+            }
             Destroy(gameObject);
         }
         else if (other.CompareTag("Bullet"))
         {
-      
-            //scoreManager.AddPoint();
             gameManager.AddScore(pointValue);
             Destroy(gameObject);
             Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
-
             Destroy(other.gameObject);
-
         }
     }
 }
