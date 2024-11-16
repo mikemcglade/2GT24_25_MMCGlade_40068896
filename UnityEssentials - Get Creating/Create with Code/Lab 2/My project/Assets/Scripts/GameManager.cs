@@ -12,11 +12,9 @@ public class GameManager : MonoBehaviour
     public bool isGameActive;
     public bool isPlayerInvincible = false;
     private Coroutine invincibilityCoroutine;
-   // public TextMeshProUGUI invincibilityTimerText;
     public Image invincibilityTimerImage;
-
-
-
+    public Image[] livesImages;
+    private int maxLives = 3;
 
     public GameObject[] enemyPrefabs;
     private float spawnRangeX = 16;
@@ -28,10 +26,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         score = 0;
+        lives = maxLives;
         UpdateScore();
         UpdateLives();
-        //AddScore(0);
-        //AddLives(3);
         isGameActive = true;
         gameOverText.gameObject.SetActive(false);
         spawnCoroutine = StartCoroutine(SpawnEnemies());
@@ -39,7 +36,7 @@ public class GameManager : MonoBehaviour
 
     public void AddLives(int value)
     {
-        lives += value;
+        lives = Mathf.Clamp(lives + value, 0, maxLives);
         UpdateLives();
         if (lives <= 0)
         {
@@ -51,7 +48,10 @@ public class GameManager : MonoBehaviour
     private void UpdateLives()
     {
         Debug.Log("Lives = " + lives);
-        // Update UI for lives here if you have one
+        for (int i = 0; i < livesImages.Length; i++)
+        {
+            livesImages[i].gameObject.SetActive(i < lives);
+        }
     }
 
     public void AddScore(int value)
