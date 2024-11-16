@@ -8,7 +8,8 @@ public class DetectCollisions : MonoBehaviour
     public int pointValue;
     public ParticleSystem explosionParticle;
     private bool hasCollided = false;
-    //[SerializeField] ScoreManager scoreManager;
+    public AudioClip playerHitSound;
+    public AudioClip enemyDestroySound;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,8 @@ private void OnTriggerEnter(Collider other)
             if (!gameManager.isPlayerInvincible)
             {
                 gameManager.AddLives(-1);
+                PlaySound(playerHitSound);
+
                 Debug.Log("Player lost a life");
             }
             else
@@ -43,9 +46,18 @@ private void OnTriggerEnter(Collider other)
         else if (other.CompareTag("Bullet"))
         {
             gameManager.AddScore(pointValue);
+            PlaySound(enemyDestroySound);
             Destroy(gameObject);
             Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
             Destroy(other.gameObject);
+        }
+    }
+
+    private void PlaySound(AudioClip clip)
+    {
+        if (clip != null)
+        {
+            AudioSource.PlayClipAtPoint(clip, transform.position);
         }
     }
 }

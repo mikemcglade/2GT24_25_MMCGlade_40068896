@@ -147,3 +147,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointValue: 15
   explosionParticle: {fileID: 625621707174889904, guid: ef43e5aef41c142fb85a7658a397dc75, type: 3}
+  playerHitSound: {fileID: 8300000, guid: 9d22cec00b0314cec8ced5e433e4c017, type: 3}
+  enemyDestroySound: {fileID: 8300000, guid: 0c4d74b59be37448fa3336dd222f1976, type: 3}
