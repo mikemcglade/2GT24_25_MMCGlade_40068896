@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public bool isGameActive;
     public bool isPlayerInvincible = false;
     private Coroutine invincibilityCoroutine;
+    public TextMeshProUGUI invincibilityTimerText;
+
 
 
     public GameObject[] enemyPrefabs;
@@ -96,7 +98,7 @@ public class GameManager : MonoBehaviour
         isPlayerInvincible = status;
     }
 
-     public void ActivateInvincibility(float duration)
+public void ActivateInvincibility(float duration)
     {
         if (invincibilityCoroutine != null)
         {
@@ -108,10 +110,18 @@ public class GameManager : MonoBehaviour
     private IEnumerator InvincibilityTimer(float duration)
     {
         isPlayerInvincible = true;
-        Debug.Log("Invincibility activated");
-        yield return new WaitForSeconds(duration);
+        invincibilityTimerText.gameObject.SetActive(true); // Show the timer UI
+        float remainingTime = duration;
+
+        while (remainingTime > 0)
+        {
+            invincibilityTimerText.text = "Invincible: " + remainingTime.ToString("F1") + "s";
+            yield return new WaitForSeconds(0.1f);
+            remainingTime -= 0.1f;
+        }
+
         isPlayerInvincible = false;
-        Debug.Log("Invincibility deactivated");
+        invincibilityTimerText.gameObject.SetActive(false); // Hide the timer UI
         invincibilityCoroutine = null;
     }
 }
