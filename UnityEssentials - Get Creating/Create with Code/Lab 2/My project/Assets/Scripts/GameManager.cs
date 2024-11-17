@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
     private int totalInteractableObjects = 3;
     private int interactedObjects = 0;
     public GameObject levelCompleteScreen;
+    private InteractableObject lastInteractedObject;
+    private bool isWaitingForLastInteraction = false;
     // adds UI visual effect for powerup
     //private PlayerVisualEffect playerVisualEffect;
 
@@ -208,15 +210,24 @@ public void ResumeGame()
         isPaused = false;
     }
 
-    public void ObjectInteracted()
+    public void ObjectInteracted(InteractableObject interactedObject)
     {
         interactedObjects++;
+        lastInteractedObject = interactedObject;
+
         if (interactedObjects >= totalInteractableObjects)
+        {
+            isWaitingForLastInteraction = true;
+        }
+    }
+
+public void InteractionComplete()
+    {
+        if (isWaitingForLastInteraction)
         {
             LevelComplete();
         }
     }
-
     private void LevelComplete()
     {
         isGameActive = false;

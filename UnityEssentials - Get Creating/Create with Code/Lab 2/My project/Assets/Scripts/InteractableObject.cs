@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class InteractableObject : MonoBehaviour
@@ -50,7 +51,7 @@ private void Start()
         gameManager.PauseGame();
 
         hasBeenInteracted = true;
-        gameManager.ObjectInteracted();
+        gameManager.ObjectInteracted(this);
 
     }
 
@@ -59,6 +60,8 @@ private void HideInteractionUI()
         interactionPanel1.SetActive(false);
         isMessageDisplayed = false;
         gameManager.ResumeGame();
+        gameManager.InteractionComplete();
+
     }
 
     private void OnTriggerEnter(Collider other)
