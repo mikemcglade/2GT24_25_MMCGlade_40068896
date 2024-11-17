@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     private float startDelay = 2;
     private float spawnInterval = 2.5f;
     private Coroutine spawnCoroutine;
+    private PlayerVisualEffect playerVisualEffect;
 
     void Start()
     {
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
         isGameActive = true;
         gameOverText.gameObject.SetActive(false);
         spawnCoroutine = StartCoroutine(SpawnEnemies());
+        playerVisualEffect = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerVisualEffect>();
     }
 
     public void AddLives(int value)
@@ -112,6 +114,7 @@ public class GameManager : MonoBehaviour
             StopCoroutine(invincibilityCoroutine);
         }
         invincibilityCoroutine = StartCoroutine(InvincibilityTimer(duration));
+        playerVisualEffect.StartInvincibilityEffect(duration);
     }
 
     private IEnumerator InvincibilityTimer(float duration)
