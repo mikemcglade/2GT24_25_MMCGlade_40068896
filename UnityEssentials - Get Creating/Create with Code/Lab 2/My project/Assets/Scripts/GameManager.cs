@@ -29,7 +29,9 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverScreen; // Assign this in the Inspector
     private bool isPaused = false;
 
-
+    private int totalInteractableObjects = 3;
+    private int interactedObjects = 0;
+    public GameObject levelCompleteScreen;
     // adds UI visual effect for powerup
     //private PlayerVisualEffect playerVisualEffect;
 
@@ -45,6 +47,8 @@ public class GameManager : MonoBehaviour
         gameOverScreen.SetActive(false);
 
         spawnCoroutine = StartCoroutine(SpawnEnemies());
+        levelCompleteScreen.SetActive(false);
+
        // adds UI visual effect for powerup duration
        // playerVisualEffect = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerVisualEffect>();
     }
@@ -202,5 +206,26 @@ public void ResumeGame()
     {
         Time.timeScale = 1f;
         isPaused = false;
+    }
+
+    public void ObjectInteracted()
+    {
+        interactedObjects++;
+        if (interactedObjects >= totalInteractableObjects)
+        {
+            LevelComplete();
+        }
+    }
+
+    private void LevelComplete()
+    {
+        isGameActive = false;
+        levelCompleteScreen.SetActive(true);
+        // You can add more level complete logic here, such as stopping enemy spawns
+        if (spawnCoroutine != null)
+        {
+            StopCoroutine(spawnCoroutine);
+        }
+        Debug.Log("Level Complete!");
     }
 }

@@ -12,6 +12,8 @@ public class InteractableObject : MonoBehaviour
 public GameObject interactionPanel1; // Reference to the panel containing UI elements
 private GameManager gameManager;
 private bool isMessageDisplayed = false;
+private bool hasBeenInteracted = false;
+
 
 private void Start()
     {
@@ -46,6 +48,9 @@ private void Start()
         // hide after 5 seconds
         // StartCoroutine(HideAfterDelay());
         gameManager.PauseGame();
+
+        hasBeenInteracted = true;
+        gameManager.ObjectInteracted();
 
     }
 
