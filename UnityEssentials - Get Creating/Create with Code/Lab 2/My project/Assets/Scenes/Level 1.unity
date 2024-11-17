@@ -1324,7 +1324,7 @@ MonoBehaviour:
     before the transformation \u2026 were you correct in this hypothesis? We (You
     and I) believe so. Now, more importantly, as a shadow self, can you shrink? Can
     you get into those secret spaces you never through possible? Do so, explore this
-    new world \u2013 YOUR world!"
+    new world \u2013 YOUR world!\n\nPress A to continue -->"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2101,10 +2101,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1249161576}
-  - {fileID: 854361682}
-  - {fileID: 1516090229}
   - {fileID: 123624760}
+  - {fileID: 1516090229}
+  - {fileID: 854361682}
+  - {fileID: 1249161576}
   - {fileID: 373235918}
   - {fileID: 1994329052}
   - {fileID: 1912308680}

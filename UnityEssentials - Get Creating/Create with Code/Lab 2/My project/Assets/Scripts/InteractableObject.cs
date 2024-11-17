@@ -10,15 +10,8 @@ public class InteractableObject : MonoBehaviour
  public Material highlightMaterial; // highlight colour is assigned in the Inspector
 
 public GameObject interactionPanel1; // Reference to the panel containing UI elements
-
-
-    private void Update()
-    {
-        if (isPlayerInRange && Input.GetKeyDown(KeyCode.E))
-        {
-            ShowInteractionUI();
-        }
-    }
+private GameManager gameManager;
+private bool isMessageDisplayed = false;
 
 private void Start()
     {
@@ -26,19 +19,41 @@ private void Start()
         originalMaterial = objectRenderer.material; // Store the original material
 
         interactionPanel1.SetActive(false);
+        gameManager = FindObjectOfType<GameManager>();
+
     }
+
+    private void Update()
+    {
+        if (isPlayerInRange && Input.GetKeyDown(KeyCode.A) && !isMessageDisplayed)
+        {
+            ShowInteractionUI();
+        }
+        else if (isMessageDisplayed && Input.GetKeyDown(KeyCode.A))
+        {
+            HideInteractionUI();
+        }
+    }
+
+
 
     private void ShowInteractionUI()
     {
         // Show the panel
         interactionPanel1.SetActive(true);
-
+        isMessageDisplayed = true;
 
         // hide after 5 seconds
+        // StartCoroutine(HideAfterDelay());
+        gameManager.PauseGame();
 
-         StartCoroutine(HideAfterDelay());
-        
-        // Add additional interaction logic here (e.g., opening doors, picking up items)
+    }
+
+private void HideInteractionUI()
+    {
+        interactionPanel1.SetActive(false);
+        isMessageDisplayed = false;
+        gameManager.ResumeGame();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -59,26 +74,14 @@ private void Start()
         }
     }
 
+    
+
     private void HighlightObject(bool highlight)
-    {
-        if (highlight)
-        {
-            objectRenderer.material = highlightMaterial; // Change to highlight material
-        }
-        else
-        {
-            objectRenderer.material = originalMaterial; // Revert to original material
-        }
+     {
+
+        objectRenderer.material = highlight ? highlightMaterial : originalMaterial; // Revert to original material
+
     }
 
-    private IEnumerator HideAfterDelay()
-{
-    yield return new WaitForSeconds(5f);
-    HideInteractionUI();
-}
-
-        private void HideInteractionUI()
-    {
-        interactionPanel1.SetActive(false);
-    }
+ 
 }

@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     private Coroutine spawnCoroutine;
     public GameObject restartButton; // Assign this in the Inspector
     public GameObject gameOverScreen; // Assign this in the Inspector
+    private bool isPaused = false;
 
 
     // adds UI visual effect for powerup
@@ -189,5 +190,17 @@ public void RestartGame()
 private void ReturnToStartScreen()
     {
         SceneManager.LoadScene("StartScreen"); 
+    }
+
+public void PauseGame()
+    {
+        Time.timeScale = 0f;
+        isPaused = true;
+    }
+
+public void ResumeGame()
+    {
+        Time.timeScale = 1f;
+        isPaused = false;
     }
 }
