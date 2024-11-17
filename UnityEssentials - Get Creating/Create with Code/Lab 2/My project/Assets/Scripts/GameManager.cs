@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     private float spawnInterval = 2.5f;
     private Coroutine spawnCoroutine;
     public GameObject restartButton; // Assign this in the Inspector
+    public GameObject gameOverScreen; // Assign this in the Inspector
+
 
     // adds UI visual effect for powerup
     //private PlayerVisualEffect playerVisualEffect;
@@ -37,8 +39,10 @@ public class GameManager : MonoBehaviour
         UpdateScore();
         UpdateLives();
         isGameActive = true;
-        restartButton.SetActive(false);
+        //restartButton.SetActive(false);
         gameOverText.gameObject.SetActive(false);
+        gameOverScreen.SetActive(false);
+
         spawnCoroutine = StartCoroutine(SpawnEnemies());
        // adds UI visual effect for powerup duration
        // playerVisualEffect = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerVisualEffect>();
@@ -83,6 +87,7 @@ public class GameManager : MonoBehaviour
     {
         gameOverText.gameObject.SetActive(true);
         restartButton.SetActive(true); // Show the restart button
+        gameOverScreen.SetActive(true);
 
         isGameActive = false;
         if (spawnCoroutine != null)

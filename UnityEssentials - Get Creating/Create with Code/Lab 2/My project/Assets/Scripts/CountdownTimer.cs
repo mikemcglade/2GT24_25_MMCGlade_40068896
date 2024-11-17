@@ -6,12 +6,14 @@ public class CountdownTimer : MonoBehaviour
 {
     public float totalTime = 80f; // Total time in seconds
     [SerializeField] TextMeshProUGUI timerText; // Reference to the UI Text component
-
     private float timeRemaining;
+    private GameManager gameManager;
 
     void Start()
     {
         timeRemaining = totalTime;
+        gameManager = FindObjectOfType<GameManager>();
+
     }
 
     void Update()
@@ -27,6 +29,10 @@ public class CountdownTimer : MonoBehaviour
             UpdateTimerDisplay();
             Debug.Log("Time's up!");
             // Add any game-over logic here
+            if (gameManager != null && gameManager.isGameActive)
+            {
+                gameManager.GameOver();
+            }
         }
     }
 
