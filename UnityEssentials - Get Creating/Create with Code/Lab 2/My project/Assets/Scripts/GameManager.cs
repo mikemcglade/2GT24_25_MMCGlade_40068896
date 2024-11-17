@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class GameManager : MonoBehaviour
     private float startDelay = 2;
     private float spawnInterval = 2.5f;
     private Coroutine spawnCoroutine;
+    public GameObject restartButton; // Assign this in the Inspector
+
     // adds UI visual effect for powerup
     //private PlayerVisualEffect playerVisualEffect;
 
@@ -34,6 +37,7 @@ public class GameManager : MonoBehaviour
         UpdateScore();
         UpdateLives();
         isGameActive = true;
+        restartButton.SetActive(false);
         gameOverText.gameObject.SetActive(false);
         spawnCoroutine = StartCoroutine(SpawnEnemies());
        // adds UI visual effect for powerup duration
@@ -78,6 +82,8 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         gameOverText.gameObject.SetActive(true);
+        restartButton.SetActive(true); // Show the restart button
+
         isGameActive = false;
         if (spawnCoroutine != null)
         {
@@ -165,5 +171,10 @@ private IEnumerator FlashLifeLostOverlay()
 
         lifeLostOverlay.color = new Color(overlayColor.r, overlayColor.g, overlayColor.b, endAlpha);
     }
-
+public void RestartGame()
+    {
+        // Reload the current scene
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
+    }
 }
