@@ -95,6 +95,9 @@ public class GameManager : MonoBehaviour
             StopCoroutine(spawnCoroutine);
         }
         Debug.Log("Game Over");
+        // Waits 3 seconds before calling ReturnToStartScreen
+        Invoke("ReturnToStartScreen", 3f); 
+
     }
 
     IEnumerator SpawnEnemies()
@@ -181,5 +184,10 @@ public void RestartGame()
         // Reload the current scene
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.name);
+    }
+
+private void ReturnToStartScreen()
+    {
+        SceneManager.LoadScene("StartScreen"); 
     }
 }
