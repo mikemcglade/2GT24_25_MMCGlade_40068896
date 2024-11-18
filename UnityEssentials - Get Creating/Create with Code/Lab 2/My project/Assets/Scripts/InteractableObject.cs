@@ -28,11 +28,11 @@ private void Start()
 
     private void Update()
     {
-        if (isPlayerInRange && Input.GetKeyDown(KeyCode.A) && !isMessageDisplayed)
+        if (isPlayerInRange && Input.GetKeyDown(KeyCode.E) && !isMessageDisplayed)
         {
             ShowInteractionUI();
         }
-        else if (isMessageDisplayed && Input.GetKeyDown(KeyCode.A))
+        else if (isMessageDisplayed && Input.GetKeyDown(KeyCode.E))
         {
             HideInteractionUI();
         }

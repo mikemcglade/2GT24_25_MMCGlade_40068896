@@ -17,7 +17,7 @@ public class PlayerShrink : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S) && canShrink)
+        if (Input.GetKeyDown(KeyCode.Q) && canShrink)
         {
             StartCoroutine(ShrinkCoroutine());
         }
