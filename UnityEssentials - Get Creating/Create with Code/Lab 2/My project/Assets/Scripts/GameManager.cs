@@ -26,15 +26,14 @@ public class GameManager : MonoBehaviour
     private float startDelay = 2;
     private float spawnInterval = 2.5f;
     private Coroutine spawnCoroutine;
-    public GameObject restartButton; // Assign this in the Inspector
-    public GameObject gameOverScreen; // Assign this in the Inspector
+    public GameObject restartButton;
+    public GameObject gameOverScreen;
     private bool isPaused = false;
     public RainController rainController;
     private HashSet<InteractableObject> interactedObjects = new HashSet<InteractableObject>();
 
 
     private int totalInteractableObjects = 3;
-    //private int interactedObjects = 0;
     public GameObject levelCompleteScreen;
     private InteractableObject lastInteractedObject;
     private bool isWaitingForLastInteraction = false;
