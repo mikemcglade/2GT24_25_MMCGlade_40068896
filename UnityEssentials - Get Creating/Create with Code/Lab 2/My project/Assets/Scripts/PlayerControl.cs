@@ -33,7 +33,7 @@ public class PlayerControl : MonoBehaviour
     {
         ConstrainPlayerPosition();
 
-        // if the player presses space bar, fire a bullet
+        // if the player presses space bar, fires a bullet
 
         if (Input.GetKeyDown(KeyCode.Space) && Time.time > canFire)
         {
@@ -43,7 +43,7 @@ public class PlayerControl : MonoBehaviour
     }
     private void FireBullet()
     {
-        // add bullet cool down period
+        // add bullet cooldown period
 
         canFire = Time.time + fireRate;
         Instantiate(projectilePrefab, projectileSpawnPoint.position, projectilePrefab.transform.rotation);
@@ -57,9 +57,6 @@ public class PlayerControl : MonoBehaviour
 
         targetVelocity = new Vector3(horizontalInput, 0, verticalInput).normalized * speed;
         playerRb.velocity = Vector3.SmoothDamp(playerRb.velocity, targetVelocity, ref velocity, smoothness);
-        // playerRb.AddForce(Vector3.forward * speed * verticalInput);
-        // playerRb.AddForce(Vector3.right * speed * horizonalInput);
-         
     }
 
     void ConstrainPlayerPosition()
@@ -73,12 +70,7 @@ public class PlayerControl : MonoBehaviour
     // Vector3 pos = transform.position;
     // pos.z = Mathf.Clamp(pos.z, -zBound, zBound);
     // transform.position = pos;
-  
-    // old code to constrain the play on z axis
-    //if (transform.position.z > zBound)
-    //    {
-    //        transform.position = new Vector3(transform.position.x, transform.position.y, zBound);
-    //    }
+
     }
 
     private void OnTriggerEnter(Collider other)

@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     private InteractableObject lastInteractedObject;
     private bool isWaitingForLastInteraction = false;
     // adds UI visual effect for powerup
-    //private PlayerVisualEffect playerVisualEffect;
+    private PlayerVisualEffect playerVisualEffect;
 
     void Start()
     {
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
         levelCompleteScreen.SetActive(false);
 
        // adds UI visual effect for powerup duration
-       // playerVisualEffect = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerVisualEffect>();
+        playerVisualEffect = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerVisualEffect>();
     }
 
     public void AddLives(int value)
@@ -138,7 +138,7 @@ public class GameManager : MonoBehaviour
         }
         invincibilityCoroutine = StartCoroutine(InvincibilityTimer(duration));
         // adds UI colour change for player
-        //playerVisualEffect.StartInvincibilityEffect(duration);
+        playerVisualEffect.StartInvincibilityEffect(duration);
     }
 
     private IEnumerator InvincibilityTimer(float duration)
@@ -232,7 +232,7 @@ public void InteractionComplete()
     {
         isGameActive = false;
         levelCompleteScreen.SetActive(true);
-        // You can add more level complete logic here, such as stopping enemy spawns
+        // Canan add more level complete logic here, such as stopping enemy spawns
         if (spawnCoroutine != null)
         {
             StopCoroutine(spawnCoroutine);
