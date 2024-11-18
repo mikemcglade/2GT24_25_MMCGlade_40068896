@@ -1878,6 +1878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8166ce5204bd84f12a0d88ad2dacf67b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 20
   fireRate: 1
   canFire: -1
   projectilePrefab: {fileID: 8102746377321594267, guid: c602ef8ff775646359d904edb0dafcba, type: 3}
@@ -1895,7 +1896,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a1dc7212cea4b8885ac7f39dd7a850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shrunkScale: {x: 0.5, y: 0.001, z: 0.5}
+  shrunkScale: {x: 0.5, y: 0.0001, z: 0.5}
   shrinkDuration: 5
   cooldownDuration: 5
 --- !u!82 &354601914

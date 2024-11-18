@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    private float speed = 5.0f;
+    public float speed = 5.0f;
     private float zBound = 10;
     public float fireRate = 1f;
     public float canFire = -1f;
@@ -12,22 +12,21 @@ public class PlayerControl : MonoBehaviour
     public GameObject projectilePrefab;
     public Transform projectileSpawnPoint;
     public bool hasPowerup;
-    //private bool isInvincible = false;
-
-   //private GameManager playerControlScript;
 
 
-    // Start is called before the first frame update
+
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
-        //playerControlScript = GameObject.Find("Player").GetComponent<GameManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         MovePlayer();
+
+    }
+    void Update()
+    {
         ConstrainPlayerPosition();
 
         // if the player presses space bar, fire a bullet
@@ -41,26 +40,29 @@ public class PlayerControl : MonoBehaviour
     private void FireBullet()
     {
         // add bullet cool down period
-        canFire = Time.time + fireRate;
 
+        canFire = Time.time + fireRate;
         Instantiate(projectilePrefab, projectileSpawnPoint.position, projectilePrefab.transform.rotation);
 
     }
 
     void MovePlayer()
     {
-       // if (playerControlScript.isGameActive == true)
-        {
-            float horizonalInput = Input.GetAxis("Horizontal");
-            float verticalInput = Input.GetAxis("Vertical");
-
-            playerRb.AddForce(Vector3.forward * speed * verticalInput);
-            playerRb.AddForce(Vector3.right * speed * horizonalInput);
-         }
+        float horizonalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+        Vector3 movement = new Vector3(horizonalInput, 0, verticalInput).normalized * speed;
+        playerRb.velocity = new Vector3(movement.x, playerRb.velocity.y, movement.z);
+        // playerRb.AddForce(Vector3.forward * speed * verticalInput);
+        // playerRb.AddForce(Vector3.right * speed * horizonalInput);
+         
     }
 
     void ConstrainPlayerPosition()
     {
+        // code to constrain the player oth sides of z, which isn't necessary
+        // Vector3 pos = transform.position;
+        // pos.z = Mathf.Clamp(pos.z, -zBound, zBound);
+        // transform.position = pos;
     if (transform.position.z < -zBound)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, -zBound);
