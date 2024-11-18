@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -29,15 +30,17 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverScreen; // Assign this in the Inspector
     private bool isPaused = false;
     public RainController rainController;
+    private HashSet<InteractableObject> interactedObjects = new HashSet<InteractableObject>();
 
 
     private int totalInteractableObjects = 3;
-    private int interactedObjects = 0;
+    //private int interactedObjects = 0;
     public GameObject levelCompleteScreen;
     private InteractableObject lastInteractedObject;
     private bool isWaitingForLastInteraction = false;
     // adds UI visual effect for powerup
     private PlayerVisualEffect playerVisualEffect;
+    
 
     void Start()
     {
@@ -49,6 +52,8 @@ public class GameManager : MonoBehaviour
         //restartButton.SetActive(false);
         gameOverText.gameObject.SetActive(false);
         gameOverScreen.SetActive(false);
+
+        interactedObjects = new HashSet<InteractableObject>();
 
         spawnCoroutine = StartCoroutine(SpawnEnemies());
         levelCompleteScreen.SetActive(false);
@@ -221,13 +226,16 @@ public void ResumeGame()
 
     public void ObjectInteracted(InteractableObject interactedObject)
     {
-        interactedObjects++;
+    if (!interactedObjects.Contains(interactedObject))
+    {
+        interactedObjects.Add(interactedObject);
         lastInteractedObject = interactedObject;
-
-        if (interactedObjects >= totalInteractableObjects)
+        
+        if (interactedObjects.Count >= totalInteractableObjects)
         {
             isWaitingForLastInteraction = true;
         }
+    }
     }
 
 public void InteractionComplete()
