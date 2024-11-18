@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering.Universal;
 using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
     public float speed = 5.0f;
+    public float smoothness = 0.1f;
     private float zBound = 10;
     public float fireRate = 1f;
     public float canFire = -1f;
@@ -12,12 +14,14 @@ public class PlayerControl : MonoBehaviour
     public GameObject projectilePrefab;
     public Transform projectileSpawnPoint;
     public bool hasPowerup;
-
-
+    private Vector3 velocity = Vector3.zero;
+    private Vector3 targetVelocity;
 
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
+        playerRb.freezeRotation = true; // Prevent the player from rotating
+
     }
 
     void FixedUpdate()
@@ -48,10 +52,11 @@ public class PlayerControl : MonoBehaviour
 
     void MovePlayer()
     {
-        float horizonalInput = Input.GetAxis("Horizontal");
+        float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
-        Vector3 movement = new Vector3(horizonalInput, 0, verticalInput).normalized * speed;
-        playerRb.velocity = new Vector3(movement.x, playerRb.velocity.y, movement.z);
+
+        targetVelocity = new Vector3(horizontalInput, 0, verticalInput).normalized * speed;
+        playerRb.velocity = Vector3.SmoothDamp(playerRb.velocity, targetVelocity, ref velocity, smoothness);
         // playerRb.AddForce(Vector3.forward * speed * verticalInput);
         // playerRb.AddForce(Vector3.right * speed * horizonalInput);
          
@@ -59,14 +64,17 @@ public class PlayerControl : MonoBehaviour
 
     void ConstrainPlayerPosition()
     {
-        // code to constrain the player oth sides of z, which isn't necessary
-        // Vector3 pos = transform.position;
-        // pos.z = Mathf.Clamp(pos.z, -zBound, zBound);
-        // transform.position = pos;
-    if (transform.position.z < -zBound)
+        if (transform.position.z < -zBound)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, -zBound);
         }
+
+    // code to constrain the player oth sides of z, which isn't necessary
+    // Vector3 pos = transform.position;
+    // pos.z = Mathf.Clamp(pos.z, -zBound, zBound);
+    // transform.position = pos;
+  
+    // old code to constrain the play on z axis
     //if (transform.position.z > zBound)
     //    {
     //        transform.position = new Vector3(transform.position.x, transform.position.y, zBound);
@@ -97,22 +105,4 @@ public class PlayerControl : MonoBehaviour
         yield return new WaitForSeconds(7);
         hasPowerup = false;
     }
-
-    //public void SetInvincible(bool invincible)
-//    {
-  //      isInvincible = invincible;
-    //}
-
- //   public bool IsInvincible()
-   // {
-     //   return isInvincible;
-    //}
-
-//     public void TakeDamage(int damage)
-  //  {
-    //    if (!isInvincible)
-      //  {
-            // Apply damage logic here
-        //}
-    //}
 }
