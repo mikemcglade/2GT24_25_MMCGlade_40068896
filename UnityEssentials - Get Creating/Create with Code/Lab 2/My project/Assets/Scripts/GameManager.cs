@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     public GameObject restartButton; // Assign this in the Inspector
     public GameObject gameOverScreen; // Assign this in the Inspector
     private bool isPaused = false;
+    public RainController rainController;
+
 
     private int totalInteractableObjects = 3;
     private int interactedObjects = 0;
@@ -53,8 +55,15 @@ public class GameManager : MonoBehaviour
 
        // adds UI visual effect for powerup duration
         playerVisualEffect = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerVisualEffect>();
+        rainController = GameObject.Find("RainEffect").GetComponent<RainController>();
+        SetRainIntensity(0.5f); // Start with medium rain
     }
 
+
+    public void SetRainIntensity(float intensity)
+    {
+        rainController.SetRainIntensity(intensity);
+    }
     public void AddLives(int value)
     {
         lives = Mathf.Clamp(lives + value, 0, maxLives);
