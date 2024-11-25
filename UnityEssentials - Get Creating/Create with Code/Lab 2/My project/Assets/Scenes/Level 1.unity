@@ -1260,6 +1260,52 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 217218792}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &219644667 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3555315163218884055, guid: 8b90e7ed2a1ed464e8af592f80ddb7e7, type: 3}
+  m_PrefabInstance: {fileID: 1349377046}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &219644668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219644667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbc4c1cb0ed8540c685b30a528f86a6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  followDistance: 7
+--- !u!54 &219644676
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219644667}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &242792464
 GameObject:
   m_ObjectHideFlags: 0
@@ -1324,7 +1370,7 @@ MonoBehaviour:
     before the transformation \u2026 were you correct in this hypothesis? We (You
     and I) believe so. Now, more importantly, as a shadow self, can you shrink? Can
     you get into those secret spaces you never through possible? Do so, explore this
-    new world \u2013 YOUR world!\n\nPress A to continue -->"
+    new world \u2013 YOUR world!\n\nPress E to continue -->"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9154,6 +9200,7 @@ GameObject:
   - component: {fileID: 1036599818}
   - component: {fileID: 1036599817}
   - component: {fileID: 1036599816}
+  - component: {fileID: 1036599820}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -9248,6 +9295,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1036599820
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036599815}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1037754920
 GameObject:
   m_ObjectHideFlags: 0
@@ -10643,6 +10711,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1326960613}
   m_CullTransparentMesh: 1
+--- !u!1001 &1349377046
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 148980043974963012, guid: 8b90e7ed2a1ed464e8af592f80ddb7e7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 148980043974963012, guid: 8b90e7ed2a1ed464e8af592f80ddb7e7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 148980043974963012, guid: 8b90e7ed2a1ed464e8af592f80ddb7e7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 148980043974963012, guid: 8b90e7ed2a1ed464e8af592f80ddb7e7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 148980043974963012, guid: 8b90e7ed2a1ed464e8af592f80ddb7e7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 148980043974963012, guid: 8b90e7ed2a1ed464e8af592f80ddb7e7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 148980043974963012, guid: 8b90e7ed2a1ed464e8af592f80ddb7e7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 148980043974963012, guid: 8b90e7ed2a1ed464e8af592f80ddb7e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 148980043974963012, guid: 8b90e7ed2a1ed464e8af592f80ddb7e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 148980043974963012, guid: 8b90e7ed2a1ed464e8af592f80ddb7e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 656481395235521232, guid: 8b90e7ed2a1ed464e8af592f80ddb7e7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555315163218884055, guid: 8b90e7ed2a1ed464e8af592f80ddb7e7, type: 3}
+      propertyPath: m_Name
+      value: Enemy 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6247052018361354671, guid: 8b90e7ed2a1ed464e8af592f80ddb7e7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7641507505638178595, guid: 8b90e7ed2a1ed464e8af592f80ddb7e7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 656481395235521232, guid: 8b90e7ed2a1ed464e8af592f80ddb7e7, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3555315163218884055, guid: 8b90e7ed2a1ed464e8af592f80ddb7e7, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 219644676}
+    - targetCorrespondingSourceObject: {fileID: 3555315163218884055, guid: 8b90e7ed2a1ed464e8af592f80ddb7e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 219644668}
+  m_SourcePrefab: {fileID: 100100000, guid: 8b90e7ed2a1ed464e8af592f80ddb7e7, type: 3}
 --- !u!1 &1376436586
 GameObject:
   m_ObjectHideFlags: 0
@@ -13480,3 +13624,4 @@ SceneRoots:
   - {fileID: 1046989497}
   - {fileID: 1752795666}
   - {fileID: 534358137}
+  - {fileID: 1349377046}
