@@ -8,6 +8,7 @@ TagManager:
   - Story
   - Bullet
   - Powerup
+  - FollowingEnemy
   layers:
   - Default
   - TransparentFX

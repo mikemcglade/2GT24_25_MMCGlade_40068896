@@ -43,7 +43,7 @@ public class PlayerControl : MonoBehaviour
     }
     private void FireBullet()
     {
-        // add bullet cooldown period
+        // adds bullet cooldown period
 
         canFire = Time.time + fireRate;
         Instantiate(projectilePrefab, projectileSpawnPoint.position, projectilePrefab.transform.rotation);

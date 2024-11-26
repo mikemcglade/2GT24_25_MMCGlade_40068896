@@ -10763,12 +10763,28 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1987524799679173311, guid: 8b90e7ed2a1ed464e8af592f80ddb7e7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 14bfddb6ba8184662b0ae1736aeb67b8, type: 2}
     - target: {fileID: 3555315163218884055, guid: 8b90e7ed2a1ed464e8af592f80ddb7e7, type: 3}
       propertyPath: m_Name
-      value: Enemy 3
+      value: Enemy Follower
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555315163218884055, guid: 8b90e7ed2a1ed464e8af592f80ddb7e7, type: 3}
+      propertyPath: m_TagString
+      value: FollowingEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 6247052018361354671, guid: 8b90e7ed2a1ed464e8af592f80ddb7e7, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6247052018361354671, guid: 8b90e7ed2a1ed464e8af592f80ddb7e7, type: 3}
+      propertyPath: pointValue
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6247052018361354671, guid: 8b90e7ed2a1ed464e8af592f80ddb7e7, type: 3}
+      propertyPath: isFollowingEnemy
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7641507505638178595, guid: 8b90e7ed2a1ed464e8af592f80ddb7e7, type: 3}
