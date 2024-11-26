@@ -39,6 +39,10 @@ public class GameManager : MonoBehaviour
     private bool isWaitingForLastInteraction = false;
     // adds UI visual effect for powerup
     private PlayerVisualEffect playerVisualEffect;
+    public AudioSource backgroundMusic;
+    public AudioSource rainSoundEffect;
+    public AudioClip backgroundMusicClip;
+    public AudioClip rainSoundClip;
     
 
     void Start()
@@ -47,6 +51,7 @@ public class GameManager : MonoBehaviour
         lives = maxLives;
         UpdateScore();
         UpdateLives();
+
         isGameActive = true;
         //restartButton.SetActive(false);
         gameOverText.gameObject.SetActive(false);
@@ -61,6 +66,9 @@ public class GameManager : MonoBehaviour
         playerVisualEffect = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerVisualEffect>();
         rainController = GameObject.Find("RainEffect").GetComponent<RainController>();
         SetRainIntensity(0.5f); // Start with medium rain
+        
+        PlayBackgroundMusic();
+        PlayRainSound();
     }
 
 
@@ -254,5 +262,25 @@ public void InteractionComplete()
             StopCoroutine(spawnCoroutine);
         }
         Debug.Log("Level Complete!");
+    }
+
+    void PlayBackgroundMusic()
+    {
+       if (backgroundMusic != null)
+        {
+        backgroundMusic.clip = backgroundMusicClip;
+            backgroundMusic.loop = true;
+            backgroundMusic.Play();
+        }
+    }
+
+    void PlayRainSound()
+    {
+      if (rainSoundEffect != null)
+        {
+     rainSoundEffect.clip = rainSoundClip;
+            rainSoundEffect.loop = true;
+            rainSoundEffect.Play();
+        }
     }
 }
