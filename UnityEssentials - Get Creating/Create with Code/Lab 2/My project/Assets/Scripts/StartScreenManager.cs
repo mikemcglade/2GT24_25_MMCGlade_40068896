@@ -9,7 +9,7 @@ public class StartScreenManager : MonoBehaviour
     public GameObject instructionsPanel;
     public Button instructionsButton;
     public Button startButton;
-    public Button closeButton; // Add this line
+    public Button closeButton;
 
     //public Animation startScreenAnimation;
 
