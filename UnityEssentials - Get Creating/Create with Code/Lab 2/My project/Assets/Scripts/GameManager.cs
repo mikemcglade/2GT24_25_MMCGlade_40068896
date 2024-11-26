@@ -43,7 +43,9 @@ public class GameManager : MonoBehaviour
     public AudioSource rainSoundEffect;
     public AudioClip backgroundMusicClip;
     public AudioClip rainSoundClip;
-    
+    private int finalScore;
+    public TextMeshProUGUI levelCompleteText;
+
 
     void Start()
     {
@@ -123,8 +125,8 @@ public class GameManager : MonoBehaviour
             StopCoroutine(spawnCoroutine);
         }
         Debug.Log("Game Over");
-        // Waits 3 seconds before calling ReturnToStartScreen
-        Invoke("ReturnToStartScreen", 3f); 
+        // Waits 5 seconds before calling ReturnToStartScreen
+        Invoke("ReturnToStartScreen", 5f); 
 
     }
 
@@ -255,8 +257,10 @@ public void InteractionComplete()
     private void LevelComplete()
     {
         isGameActive = false;
+        finalScore = score;
         levelCompleteScreen.SetActive(true);
-        // Canan add more level complete logic here, such as stopping enemy spawns
+        levelCompleteText.text = "Final Score: " + score;
+
         if (spawnCoroutine != null)
         {
             StopCoroutine(spawnCoroutine);
