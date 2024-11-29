@@ -606,9 +606,9 @@ GameObject:
   - component: {fileID: 5504295685583044873}
   - component: {fileID: 4559928854357044449}
   - component: {fileID: 8703562201842350444}
-  - component: {fileID: 67832390449259077}
   - component: {fileID: 5714099423490673992}
-  - component: {fileID: 2796284160179196496}
+  - component: {fileID: 8953265421164518695}
+  - component: {fileID: 5241508807183306841}
   m_Layer: 0
   m_Name: Animal_Fox_01
   m_TagString: Untagged
@@ -677,18 +677,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
---- !u!114 &67832390449259077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7570685960311211781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 635243934f46b4971aac6a8a2f194655, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &5714099423490673992
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -710,7 +698,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.13478236, y: 0.2576852, z: 0.36598983}
   m_Center: {x: 0.004481816, y: 0.10070509, z: 0.02292478}
---- !u!114 &2796284160179196496
+--- !u!114 &8953265421164518695
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -719,7 +707,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 7570685960311211781}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cdf95f14782a4442a8cf996bed4cf9e, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c52ee72091692143869a36cdefe1fd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5241508807183306841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7570685960311211781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81e62e9a8a22fac478a927ce940e28f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7768579786253730225

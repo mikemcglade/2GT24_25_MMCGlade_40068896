@@ -181,9 +181,9 @@ GameObject:
   - component: {fileID: 7167319342967648612}
   - component: {fileID: 2663903570135704162}
   - component: {fileID: 400169428492696189}
-  - component: {fileID: 1823052048628399024}
   - component: {fileID: 2792675345943469567}
-  - component: {fileID: 1122451030328940062}
+  - component: {fileID: 5038248469926786871}
+  - component: {fileID: 3984599652182546341}
   m_Layer: 0
   m_Name: Animal_Moose_02
   m_TagString: Untagged
@@ -250,18 +250,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
---- !u!114 &1823052048628399024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1047647648208067703}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 635243934f46b4971aac6a8a2f194655, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &2792675345943469567
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -283,7 +271,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.21371445, y: 0.49885118, z: 0.4937637}
   m_Center: {x: 0.019855425, y: 0.22287652, z: 0.058466047}
---- !u!114 &1122451030328940062
+--- !u!114 &5038248469926786871
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -292,7 +280,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1047647648208067703}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cdf95f14782a4442a8cf996bed4cf9e, type: 3}
+  m_Script: {fileID: 11500000, guid: 81e62e9a8a22fac478a927ce940e28f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3984599652182546341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047647648208067703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c52ee72091692143869a36cdefe1fd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2509405710912490227
