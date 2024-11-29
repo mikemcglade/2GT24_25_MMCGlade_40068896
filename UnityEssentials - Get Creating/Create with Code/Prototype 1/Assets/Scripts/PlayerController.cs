@@ -4,20 +4,27 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // private variables
-    [SerializeField] private float speed = 5.0f;
-    private float turnSpeed = 25.0f;
+    // [SerializeField] private float speed = 5.0f;
+    [SerializeField] private float horsePower =0;
+    private float turnSpeed = 45.0f;
     private float horizontalInput;
-    private float forwardInput;
+    private float verticalInput;
+    private Rigidbody playerRb;
+
+    void Start()
+    {
+        playerRb = GetComponent<Rigidbody>();
+    }
 
     void FixedUpdate()
     {
         // player inputs
         horizontalInput = Input.GetAxis("Horizontal");
-        forwardInput = Input.GetAxis("Vertical");
+        verticalInput = Input.GetAxis("Vertical");
 
         // we move the vehicle forward
-        transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
+        // transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
+        playerRb.AddRelativeForce(Vector3.forward * horsePower * verticalInput);
         // we turn the vehicle
         transform.Rotate(Vector3.up, Time.deltaTime * turnSpeed * horizontalInput);
     }
