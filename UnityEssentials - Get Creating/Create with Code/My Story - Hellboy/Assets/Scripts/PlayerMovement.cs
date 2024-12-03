@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator anim;
     private Rigidbody rb;
+    [SerializeField] float speed = 0.02f;
 
 
 
@@ -45,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 movement = this.transform.forward * verticalAxis + this.transform.right * horizontalAxis;
         movement.Normalize();
 
-        this.transform.position += movement * 0.02f;
+        this.transform.position += movement * speed;
 
         this.anim.SetFloat("vertical", verticalAxis);
         this.anim.SetFloat("horizontal", horizontalAxis);
