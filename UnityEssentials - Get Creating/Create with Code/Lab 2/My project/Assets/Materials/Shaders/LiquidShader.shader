@@ -3,7 +3,7 @@ Shader "Custom/LiquidShader" {
         _MainTex ("Texture", 2D) = "white" {}
         _Color ("Color", Color) = (1,1,1,1)
         _WaveSpeed ("Wave Speed", Float) = 1.0
-        _WaveAmount ("Wave Amount", Float) = 0.1
+        _WaveAmount ("Wave Amount", Float) = 0.05
     }
     SubShader {
         Tags {"Queue"="Transparent" "RenderType"="Transparent"}

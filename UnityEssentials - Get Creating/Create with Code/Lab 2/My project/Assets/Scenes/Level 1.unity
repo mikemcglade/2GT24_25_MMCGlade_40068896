@@ -2015,7 +2015,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6f8c7a5117edf491093c1bc78b3d9cd8, type: 2}
+  - {fileID: 2100000, guid: da28620eec2654edd85edd741c322964, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2157,8 +2157,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shrunkScale: {x: 0.5, y: 0.001, z: 0.5}
-  shrinkDuration: 5
+  shrinkDuration: 1
+  shrunkDuration: 5
   cooldownDuration: 5
+  liquidMaterial: {fileID: 2100000, guid: dc8df73c26c73400195716fb7cc3b4bf, type: 2}
+  shrinkSFX: {fileID: 0}
+  growSFX: {fileID: 0}
 --- !u!82 &354601914
 AudioSource:
   m_ObjectHideFlags: 0
