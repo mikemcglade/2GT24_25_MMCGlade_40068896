@@ -11,17 +11,22 @@ public class PlayerShrink : MonoBehaviour
     [SerializeField] private Material liquidMaterial;
     [SerializeField] private AudioClip shrinkSFX;
     [SerializeField] private AudioClip growSFX;
+    [SerializeField] private ParticleSystem shrinkParticles;
+
 
     private Vector3 originalScale;
     private bool canShrink = true;
     private bool isShrunk = false;
     private MeshRenderer meshRenderer;
+    
     private AudioSource audioSource;
     private Material originalMaterial;
 
     private void Start()
     {
         originalScale = transform.localScale;
+        shrinkParticles.Stop();
+
         meshRenderer = GetComponent<MeshRenderer>();
         if (meshRenderer == null)
         {
@@ -72,6 +77,8 @@ public class PlayerShrink : MonoBehaviour
         // Set final shrunk state
         transform.localScale = shrunkScale;
         meshRenderer.material = liquidMaterial;
+        shrinkParticles.Play();
+
 
         yield return new WaitForSeconds(shrunkDuration);
 
@@ -93,6 +100,8 @@ public class PlayerShrink : MonoBehaviour
         // Set final original state
         transform.localScale = originalScale;
         meshRenderer.material = originalMaterial;
+        shrinkParticles.Stop();
+
         isShrunk = false;
 
         // Cooldown
