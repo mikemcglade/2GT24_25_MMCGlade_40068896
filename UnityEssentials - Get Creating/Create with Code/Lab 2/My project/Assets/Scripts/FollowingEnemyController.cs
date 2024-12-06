@@ -3,7 +3,9 @@ using UnityEngine;
 public class FollowingEnemyController : MonoBehaviour
 {
     public float speed = 3f;
-    public float followDistance = 10f;  // Distance within which the enemy will follow the player
+    public float followDistance = 10f;
+    public float rotationSpeed = 5f; // New variable for rotation speed
+
     private Transform player;
     private Rigidbody enemyRb;
 
@@ -11,8 +13,6 @@ public class FollowingEnemyController : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         enemyRb = GetComponent<Rigidbody>();
-
-        // Freeze Y position to prevent sinking
         enemyRb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
     }
 
@@ -23,8 +23,13 @@ public class FollowingEnemyController : MonoBehaviour
             float distanceToPlayer = Vector3.Distance(transform.position, player.position);
             if (distanceToPlayer <= followDistance)
             {
+                // Movement
                 Vector3 direction = (player.position - transform.position).normalized;
                 enemyRb.MovePosition(transform.position + direction * speed * Time.fixedDeltaTime);
+
+                // Rotation
+                Quaternion lookRotation = Quaternion.LookRotation(direction) * Quaternion.Euler(0, 180, 0);
+                transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.fixedDeltaTime * rotationSpeed);
             }
         }
     }
