@@ -359,6 +359,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 39120656}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &45410083 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5ae1021adf86f4805bb4e549978a156b, type: 3}
+  m_PrefabInstance: {fileID: 181459114}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &50150071
 GameObject:
   m_ObjectHideFlags: 0
@@ -1245,6 +1250,79 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1375a663e25cc476d881e6efd0da4032, type: 3}
+--- !u!1001 &181459114
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1376436590}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 5ae1021adf86f4805bb4e549978a156b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 318.4375
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5ae1021adf86f4805bb4e549978a156b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 318.43753
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5ae1021adf86f4805bb4e549978a156b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 318.43747
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5ae1021adf86f4805bb4e549978a156b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.12499988
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5ae1021adf86f4805bb4e549978a156b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.171875
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5ae1021adf86f4805bb4e549978a156b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.17187595
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5ae1021adf86f4805bb4e549978a156b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99944574
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5ae1021adf86f4805bb4e549978a156b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.008579837
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5ae1021adf86f4805bb4e549978a156b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.010735663
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5ae1021adf86f4805bb4e549978a156b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.03032359
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5ae1021adf86f4805bb4e549978a156b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -1.02
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5ae1021adf86f4805bb4e549978a156b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5ae1021adf86f4805bb4e549978a156b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -3.465
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5ae1021adf86f4805bb4e549978a156b, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5ae1021adf86f4805bb4e549978a156b, type: 3}
+      propertyPath: m_Name
+      value: Diary
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5ae1021adf86f4805bb4e549978a156b, type: 3}
 --- !u!1001 &204671593
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9010,7 +9088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f92eb3406b29f4095a4deee124f8bbf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlightMaterial: {fileID: 2100000, guid: 71d0b098dc94745569632c586596a3c9, type: 2}
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   interactionPanel1: {fileID: 123624759}
 --- !u!1001 &812587628
 PrefabInstance:
@@ -12061,7 +12139,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1376436586}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -12113,10 +12191,11 @@ Transform:
   m_GameObject: {fileID: 1376436586}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 24.33, y: 0, z: -62.53}
+  m_LocalPosition: {x: 21.68, y: 0, z: -66.16}
   m_LocalScale: {x: 0.64, y: 0.64, z: 0.64}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 45410083}
   m_Father: {fileID: 295609578}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1376436591
@@ -12138,8 +12217,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.882138, y: 2.8259647, z: 3.0013437}
-  m_Center: {x: -0.6105216, y: 0.41298792, z: -1.0006732}
+  m_Size: {x: 7.0082693, y: 2.9610043, z: 5.3246565}
+  m_Center: {x: 0.45254827, y: 0.48050863, z: -0.7732671}
 --- !u!114 &1376436592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12152,7 +12231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f92eb3406b29f4095a4deee124f8bbf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlightMaterial: {fileID: 2100000, guid: 71d0b098dc94745569632c586596a3c9, type: 2}
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   interactionPanel1: {fileID: 854361681}
 --- !u!1001 &1381212548
 PrefabInstance:
@@ -12432,7 +12511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f92eb3406b29f4095a4deee124f8bbf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlightMaterial: {fileID: 2100000, guid: 71d0b098dc94745569632c586596a3c9, type: 2}
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   interactionPanel1: {fileID: 1516090228}
 --- !u!1 &1418833201
 GameObject:

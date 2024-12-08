@@ -5,25 +5,20 @@ using UnityEngine;
 
 public class InteractableObject : MonoBehaviour
 {
- private bool isPlayerInRange = false;
- private Renderer objectRenderer;
- private Material originalMaterial;
- public Material highlightMaterial; // highlight colour is assigned in the Inspector
-
-public GameObject interactionPanel1; // Reference to the panel containing UI elements
-private GameManager gameManager;
-private bool isMessageDisplayed = false;
-private bool hasBeenInteracted = false;
-
-
-private void Start()
+    private bool isPlayerInRange = false;
+    private Renderer[] objectRenderers;
+    public Color highlightColor = Color.yellow;
+    private MaterialPropertyBlock propertyBlock;
+    public GameObject interactionPanel1;
+    private GameManager gameManager;
+    private bool isMessageDisplayed = false;
+    private bool hasBeenInteracted = false;
+    private void Start()
     {
-        objectRenderer = GetComponent<Renderer>();
-        originalMaterial = objectRenderer.material; // Store the original material
-
+        objectRenderers = GetComponentsInChildren<Renderer>();
+        propertyBlock = new MaterialPropertyBlock();
         interactionPanel1.SetActive(false);
         gameManager = FindObjectOfType<GameManager>();
-
     }
 
     private void Update()
@@ -38,38 +33,29 @@ private void Start()
         }
     }
 
-
-
     private void ShowInteractionUI()
     {
-        // Show the panel
         interactionPanel1.SetActive(true);
         isMessageDisplayed = true;
-
-        // hide after 5 seconds
-        // StartCoroutine(HideAfterDelay());
         gameManager.PauseGame();
-
         hasBeenInteracted = true;
         gameManager.ObjectInteracted(this);
-
     }
 
-private void HideInteractionUI()
+    private void HideInteractionUI()
     {
         interactionPanel1.SetActive(false);
         isMessageDisplayed = false;
         gameManager.ResumeGame();
         gameManager.InteractionComplete();
-
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) // Ensure the player has the tag "Player"
+        if (other.CompareTag("Player"))
         {
             isPlayerInRange = true;
-            HighlightObject(true); // Highlight when player enters range
+            HighlightObject(true);
         }
     }
 
@@ -78,18 +64,26 @@ private void HideInteractionUI()
         if (other.CompareTag("Player"))
         {
             isPlayerInRange = false;
-            HighlightObject(false); // Remove highlight when player exits range
+            HighlightObject(false);
         }
     }
 
-    
-
     private void HighlightObject(bool highlight)
-     {
-
-        objectRenderer.material = highlight ? highlightMaterial : originalMaterial; // Revert to original material
-
+    {
+        foreach (var renderer in objectRenderers)
+        {
+            renderer.GetPropertyBlock(propertyBlock);
+            if (highlight)
+            {
+                propertyBlock.SetColor("_EmissionColor", highlightColor);
+                renderer.material.EnableKeyword("_EMISSION");
+            }
+            else
+            {
+                propertyBlock.SetColor("_EmissionColor", Color.black);
+                renderer.material.DisableKeyword("_EMISSION");
+            }
+            renderer.SetPropertyBlock(propertyBlock);
+        }
     }
-
- 
 }
