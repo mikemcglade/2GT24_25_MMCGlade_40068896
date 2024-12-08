@@ -77,7 +77,7 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _WaveAmount: 2
-    - _WaveSpeed: 193.63239
+    - _WaveSpeed: 261.13242
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0, g: 0, b: 0, a: 0.84313726}

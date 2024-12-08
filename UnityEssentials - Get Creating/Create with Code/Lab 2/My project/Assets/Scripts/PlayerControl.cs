@@ -16,6 +16,7 @@ public class PlayerControl : MonoBehaviour
     public bool hasPowerup;
     private Vector3 velocity = Vector3.zero;
     private Vector3 targetVelocity;
+    public Animator anim;
 
     void Start()
     {
@@ -27,6 +28,7 @@ public class PlayerControl : MonoBehaviour
     void FixedUpdate()
     {
         MovePlayer();
+        still();
 
     }
     void Update()
@@ -57,6 +59,14 @@ public class PlayerControl : MonoBehaviour
 
         targetVelocity = new Vector3(horizontalInput, 0, verticalInput).normalized * speed;
         playerRb.velocity = Vector3.SmoothDamp(playerRb.velocity, targetVelocity, ref velocity, smoothness);
+        this.anim.SetFloat("vertical", verticalInput);
+        this.anim.SetFloat("horizontal", horizontalInput);
+
+    }
+
+    private void still()
+    {
+        this.playerRb.AddForce(Vector3.down * 1 * Time.deltaTime, ForceMode.Impulse);
     }
 
     void ConstrainPlayerPosition()
