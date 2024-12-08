@@ -13,12 +13,12 @@ public class PlayerShrink : MonoBehaviour
     [SerializeField] private AudioClip growSFX;
     [SerializeField] private ParticleSystem shrinkParticles;
 
-
     private Vector3 originalScale;
     private bool canShrink = true;
     private bool isShrunk = false;
     private MeshRenderer meshRenderer;
-    
+    private Material[] originalMaterials;
+
     private AudioSource audioSource;
     private Material originalMaterial;
 
@@ -27,12 +27,13 @@ public class PlayerShrink : MonoBehaviour
         originalScale = transform.localScale;
         shrinkParticles.Stop();
 
-        meshRenderer = GetComponent<MeshRenderer>();
+        meshRenderer = GetComponentInChildren<MeshRenderer>();
         if (meshRenderer == null)
         {
-            Debug.LogError("MeshRenderer component not found on the player object.");
+            Debug.LogError("MeshRenderer component not found on the child object.");
+            return;
         }
-        originalMaterial = meshRenderer.material;
+        originalMaterials = meshRenderer.materials;
 
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
@@ -76,7 +77,13 @@ public class PlayerShrink : MonoBehaviour
 
         // Set final shrunk state
         transform.localScale = shrunkScale;
-        meshRenderer.material = liquidMaterial;
+        //meshRenderer.material = liquidMaterial;
+        Material[] shrunkMaterials = new Material[meshRenderer.materials.Length];
+        for (int i = 0; i < shrunkMaterials.Length; i++)
+        {
+            shrunkMaterials[i] = liquidMaterial;
+        }
+        meshRenderer.materials = shrunkMaterials;
         shrinkParticles.Play();
 
 
@@ -112,7 +119,13 @@ public class PlayerShrink : MonoBehaviour
     private void AnimateLiquid()
     {
         // Animate the liquid material
-        float waveSpeed = liquidMaterial.GetFloat("_WaveSpeed");
-        liquidMaterial.SetFloat("_WaveSpeed", waveSpeed + Time.deltaTime);
+        foreach (Material mat in meshRenderer.materials)
+        {
+            if (mat.HasProperty("_WaveSpeed"))
+            {
+                float waveSpeed = mat.GetFloat("_WaveSpeed");
+                mat.SetFloat("_WaveSpeed", waveSpeed + Time.deltaTime);
+            }
+        }
     }
 }
