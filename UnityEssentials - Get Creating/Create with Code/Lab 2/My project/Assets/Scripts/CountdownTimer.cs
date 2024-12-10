@@ -42,4 +42,11 @@ public class CountdownTimer : MonoBehaviour
         int seconds = Mathf.FloorToInt(timeRemaining % 60f);
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
+
+    // Add time as a collectable
+    public void AddTime(float secondsToAdd)
+    {
+        timeRemaining += secondsToAdd;
+        UpdateTimerDisplay();
+    }
 }
