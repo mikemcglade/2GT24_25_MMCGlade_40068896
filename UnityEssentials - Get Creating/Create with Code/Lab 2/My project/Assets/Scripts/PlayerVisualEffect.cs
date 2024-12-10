@@ -1,20 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public class PlayerVisualEffect : MonoBehaviour
 {
     public Color invincibilityColor = Color.yellow;
     public float blinkRate = 0.2f;
-    
-    private Renderer playerRenderer;
-    private Color originalColor;
-    private bool isBlinking = false;
+    private Renderer[] playerRenderers;
+    private Material[][] originalMaterials;
 
     private void Start()
     {
-        playerRenderer = GetComponent<Renderer>();
-        originalColor = playerRenderer.material.color;
+        playerRenderers = GetComponentsInChildren<Renderer>();
+        originalMaterials = new Material[playerRenderers.Length][];
+        for (int i = 0; i < playerRenderers.Length; i++)
+        {
+            originalMaterials[i] = playerRenderers[i].sharedMaterials;
+        }
     }
 
     public void StartInvincibilityEffect(float duration)
@@ -23,31 +24,39 @@ public class PlayerVisualEffect : MonoBehaviour
         StartCoroutine(InvincibilityEffect(duration));
     }
 
-    private System.Collections.IEnumerator InvincibilityEffect(float duration)
+    private IEnumerator InvincibilityEffect(float duration)
     {
-        isBlinking = true;
         float elapsedTime = 0f;
 
         while (elapsedTime < duration)
         {
-            float t = elapsedTime / duration;
-            Color currentColor = Color.Lerp(invincibilityColor, originalColor, t);
+            SetMaterialColors(invincibilityColor);
+            yield return new WaitForSeconds(blinkRate);
+            ResetMaterialColors();
+            yield return new WaitForSeconds(blinkRate);
 
-            // Blink effect
-            if (Mathf.PingPong(Time.time, blinkRate) > blinkRate / 2f)
-            {
-                playerRenderer.material.color = currentColor;
-            }
-            else
-            {
-                playerRenderer.material.color = originalColor;
-            }
-
-            elapsedTime += Time.deltaTime;
-            yield return null;
+            elapsedTime += blinkRate * 2;
         }
 
-        playerRenderer.material.color = originalColor;
-        isBlinking = false;
+        ResetMaterialColors();
+    }
+
+    private void SetMaterialColors(Color color)
+    {
+        foreach (Renderer renderer in playerRenderers)
+        {
+            foreach (Material material in renderer.materials)
+            {
+                material.color = color;
+            }
+        }
+    }
+
+    private void ResetMaterialColors()
+    {
+        for (int i = 0; i < playerRenderers.Length; i++)
+        {
+            playerRenderers[i].materials = originalMaterials[i];
+        }
     }
 }
