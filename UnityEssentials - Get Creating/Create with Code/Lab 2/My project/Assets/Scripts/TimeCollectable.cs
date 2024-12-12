@@ -5,6 +5,8 @@ using UnityEngine;
 public class TimeCollectable : MonoBehaviour
 {
     public float timeToAdd = 20f;
+    public AudioClip collectSound;
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,8 +16,18 @@ public class TimeCollectable : MonoBehaviour
             if (timer != null)
             {
                 timer.AddTime(timeToAdd);
+                PlayCollectSound();
+
                 Destroy(gameObject);
             }
+        }
+    }
+
+      private void PlayCollectSound()
+    {
+        if (collectSound != null)
+        {
+            AudioSource.PlayClipAtPoint(collectSound, transform.position);
         }
     }
 }
