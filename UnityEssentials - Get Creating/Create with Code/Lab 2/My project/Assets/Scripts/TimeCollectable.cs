@@ -17,13 +17,12 @@ public class TimeCollectable : MonoBehaviour
             {
                 timer.AddTime(timeToAdd);
                 PlayCollectSound();
-
                 Destroy(gameObject);
             }
         }
     }
 
-      private void PlayCollectSound()
+    private void PlayCollectSound()
     {
         if (collectSound != null)
         {

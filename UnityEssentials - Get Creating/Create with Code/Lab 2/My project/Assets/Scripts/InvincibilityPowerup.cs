@@ -4,6 +4,7 @@ public class InvincibilityPowerup : MonoBehaviour
 {
     public float invincibilityDuration = 7f;
     private GameManager gameManager;
+    public AudioClip collectSound;
 
     void Start()
     {
@@ -15,7 +16,16 @@ public class InvincibilityPowerup : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             gameManager.ActivateInvincibility(invincibilityDuration);
+            PlayCollectSound();
             Destroy(gameObject);
+        }
+    }
+
+    private void PlayCollectSound()
+    {
+        if (collectSound != null)
+        {
+            AudioSource.PlayClipAtPoint(collectSound, transform.position);
         }
     }
 }

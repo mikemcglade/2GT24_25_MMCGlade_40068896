@@ -13,6 +13,8 @@ public class InteractableObject : MonoBehaviour
     private GameManager gameManager;
     private bool isMessageDisplayed = false;
     private bool hasBeenInteracted = false;
+    public AudioClip interactSound;
+
     private void Start()
     {
         objectRenderers = GetComponentsInChildren<Renderer>();
@@ -26,6 +28,7 @@ public class InteractableObject : MonoBehaviour
         if (isPlayerInRange && Input.GetKeyDown(KeyCode.E) && !isMessageDisplayed)
         {
             ShowInteractionUI();
+            PlayInteractSound();
         }
         else if (isMessageDisplayed && Input.GetKeyDown(KeyCode.E))
         {
@@ -84,6 +87,14 @@ public class InteractableObject : MonoBehaviour
                 renderer.material.DisableKeyword("_EMISSION");
             }
             renderer.SetPropertyBlock(propertyBlock);
+        }
+    }
+
+     private void PlayInteractSound()
+    {
+        if (interactSound != null)
+        {
+            AudioSource.PlayClipAtPoint(interactSound, transform.position);
         }
     }
 }

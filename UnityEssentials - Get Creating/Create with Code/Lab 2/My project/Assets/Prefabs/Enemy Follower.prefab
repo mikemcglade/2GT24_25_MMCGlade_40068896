@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointValue: 30
-  explosionParticle: {fileID: 2088871590894813759, guid: 745208c9d6e104225bd99e1ab894e3bb, type: 3}
+  explosionParticle: {fileID: 3199346384015752365, guid: 307229a5540374aae98859caad2128a3, type: 3}
   playerHitSound: {fileID: 8300000, guid: 9d22cec00b0314cec8ced5e433e4c017, type: 3}
   enemyDestroySound: {fileID: 8300000, guid: 0c4d74b59be37448fa3336dd222f1976, type: 3}
 --- !u!114 &6132242555864157134
@@ -179,6 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   followDistance: 7
+  rotationSpeed: 5
 --- !u!1001 &6332304320449684552
 PrefabInstance:
   m_ObjectHideFlags: 0

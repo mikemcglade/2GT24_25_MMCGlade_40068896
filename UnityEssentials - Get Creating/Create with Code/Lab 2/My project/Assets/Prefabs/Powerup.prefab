@@ -77,6 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invincibilityDuration: 10
+  collectSound: {fileID: 8300000, guid: 6d7722cf5374f4d3bada9c9d30e284a9, type: 3}
 --- !u!1001 &3501552311550375832
 PrefabInstance:
   m_ObjectHideFlags: 0
