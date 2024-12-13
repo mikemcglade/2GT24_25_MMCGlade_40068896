@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 1035646328854737713}
   - component: {fileID: 1175375733027153379}
   - component: {fileID: 22430306972401789}
-  - component: {fileID: 2439438425454445623}
+  - component: {fileID: 704116591515566317}
+  - component: {fileID: 3738012505543585265}
   m_Layer: 0
   m_Name: Enemy Follower Patrol
   m_TagString: FollowingEnemy
@@ -30,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3379071695080542007}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.92, y: 0.51, z: -65.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -152,7 +153,27 @@ MonoBehaviour:
   explosionParticle: {fileID: 3199346384015752365, guid: 307229a5540374aae98859caad2128a3, type: 3}
   playerHitSound: {fileID: 8300000, guid: 9d22cec00b0314cec8ced5e433e4c017, type: 3}
   enemyDestroySound: {fileID: 8300000, guid: 0c4d74b59be37448fa3336dd222f1976, type: 3}
---- !u!114 &2439438425454445623
+--- !u!114 &704116591515566317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3379071695080542007}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17dc3a7b7f1c843b8bf502ea89c44af6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  followDistance: 1
+  rotationSpeed: 5
+  patrolPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  patrolWaitTime: 2
+--- !u!114 &3738012505543585265
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,12 +182,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 3379071695080542007}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbc4c1cb0ed8540c685b30a528f86a6c, type: 3}
+  m_Script: {fileID: 11500000, guid: fb0a4b9a64ae74fc1a11de09c50547f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  followDistance: 7
-  rotationSpeed: 5
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  moveSpeed: 3
+  waypointThreshold: 0.1
 --- !u!1001 &3027116047045959086
 PrefabInstance:
   m_ObjectHideFlags: 0
