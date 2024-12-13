@@ -280,7 +280,7 @@ public void InteractionComplete()
         Debug.Log("Level Complete!");
         
         // Load the next level after a short delay
-        Invoke("LoadNextLevel", 4f); // Adjust delay as needed
+        Invoke("LoadNextLevel", 3f); // Adjust delay as needed
     }
 
     void PlayBackgroundMusic()

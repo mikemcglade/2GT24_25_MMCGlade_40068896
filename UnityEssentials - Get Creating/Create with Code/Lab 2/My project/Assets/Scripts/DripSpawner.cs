@@ -24,10 +24,15 @@ public class DripSpawner : MonoBehaviour
     }
 
     private void SpawnDrip()
-    {
-        float randomX = Random.Range(-spawnRangeX, spawnRangeX);
-        float randomZ = Random.Range(-spawnRangeZ, spawnRangeZ);
-        Vector3 spawnPosition = new Vector3(randomX, transform.position.y, randomZ);
-        Instantiate(dripPrefab, spawnPosition, Quaternion.identity);
-    }
+   {
+    // Generate random offsets within the specified range
+    float randomX = Random.Range(-spawnRangeX, spawnRangeX);
+    float randomZ = Random.Range(-spawnRangeZ, spawnRangeZ);
+
+    // Calculate the spawn position relative to THIS spawner's position
+    Vector3 spawnPosition = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
+
+    // Instantiate the drip prefab at the calculated position
+    Instantiate(dripPrefab, spawnPosition, Quaternion.identity);
+}
 }
