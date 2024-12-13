@@ -73,7 +73,19 @@ public class GameManager : MonoBehaviour
         PlayRainSound();
     }
 
+    public static GameManager Instance;
 
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
     public void SetRainIntensity(float intensity)
     {
         rainController.SetRainIntensity(intensity);

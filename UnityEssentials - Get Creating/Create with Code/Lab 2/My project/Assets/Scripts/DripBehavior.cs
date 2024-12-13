@@ -21,7 +21,7 @@ public class DripBehavior : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Player"))
         {
-            //GameManager.Instance.AddLives(-1);
+            GameManager.Instance.AddLives(-1);
             Destroy(gameObject);
         }
     }
