@@ -278,6 +278,9 @@ public void InteractionComplete()
             StopCoroutine(spawnCoroutine);
         }
         Debug.Log("Level Complete!");
+        
+        // Load the next level after a short delay
+        Invoke("LoadNextLevel", 4f); // Adjust delay as needed
     }
 
     void PlayBackgroundMusic()
@@ -299,4 +302,10 @@ public void InteractionComplete()
             rainSoundEffect.Play();
         }
     }
+
+    public void LoadNextLevel()
+{
+    int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+    SceneManager.LoadScene(currentSceneIndex + 1);
+}
 }
