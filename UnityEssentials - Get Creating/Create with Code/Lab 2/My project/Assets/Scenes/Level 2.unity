@@ -1052,8 +1052,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointValue: 0
   explosionParticle: {fileID: 0}
-  playerHitSound: {fileID: 0}
-  enemyDestroySound: {fileID: 0}
+  playerHitSound: {fileID: 8300000, guid: f672ac6fd12f7455899c796565b4081a, type: 3}
+  enemyDestroySound: {fileID: 8300000, guid: 066994836c5474e84bd585346e10ef68, type: 3}
 --- !u!65 &354601911
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7994,7 +7994,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1323370906}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1123aa1fad08f430bb8a6a61d24aa3ec, type: 3}
@@ -8090,7 +8090,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1323370906}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 71febe7dc88124fd18af6a7c39f2eafb, type: 3}
