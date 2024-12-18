@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1258481244712021344}
   - component: {fileID: 3914094507432411813}
   - component: {fileID: -92463837155921223}
+  - component: {fileID: -7047749478440084246}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Bullet
@@ -115,7 +116,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8102746377321594267}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f40e3313b44042e382725e1a1ade3f9, type: 3}
   m_Name: 
@@ -244,3 +245,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-7047749478440084246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8102746377321594267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8beafe350b4c14e2383ba96891f2b17b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 20
+  maxDistance: 10
+  growthRate: 0.01
