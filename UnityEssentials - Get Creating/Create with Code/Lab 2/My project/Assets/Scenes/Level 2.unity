@@ -760,10 +760,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Interaction Point 5
-
-
-    Press E to continue -->'
+  m_text: "This world is dark and lightless. Oh, how I crave the light. I miss its
+    warmth, terribly. Light \u2026 I can\u2019t help but think of somehow harnessing
+    the light to my defence. If somehow, as I progress through this world, I were
+    to find a way to \u201CBRING THE LIGHT\u201D I might rid myself of the plague
+    of shadows that attack me at my every turn. I wonder, if ever I come across a
+    type of reflective material, how might I best be able to use it to my advantage.\n\nPress
+    E to continue -->"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1223,7 +1226,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1885962198541651198, guid: 1d7a1794b7e0149dbb7e20065cd516c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.29999995
+      value: 0.36
       objectReference: {fileID: 0}
     - target: {fileID: 1885962198541651198, guid: 1d7a1794b7e0149dbb7e20065cd516c3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2584,7 +2587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1885962198541651198, guid: 1d7a1794b7e0149dbb7e20065cd516c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.29999995
+      value: 0.36
       objectReference: {fileID: 0}
     - target: {fileID: 1885962198541651198, guid: 1d7a1794b7e0149dbb7e20065cd516c3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2919,7 +2922,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1885962198541651198, guid: 1d7a1794b7e0149dbb7e20065cd516c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.29999995
+      value: 0.36
       objectReference: {fileID: 0}
     - target: {fileID: 1885962198541651198, guid: 1d7a1794b7e0149dbb7e20065cd516c3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8063,7 +8066,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1885962198541651198, guid: 1d7a1794b7e0149dbb7e20065cd516c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.29999995
+      value: 0.36
       objectReference: {fileID: 0}
     - target: {fileID: 1885962198541651198, guid: 1d7a1794b7e0149dbb7e20065cd516c3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8225,7 +8228,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1885962198541651198, guid: 1d7a1794b7e0149dbb7e20065cd516c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.29999995
+      value: 0.36
       objectReference: {fileID: 0}
     - target: {fileID: 1885962198541651198, guid: 1d7a1794b7e0149dbb7e20065cd516c3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8325,10 +8328,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Interaction Point 6
-
-
-    Press E to continue -->'
+  m_text: "Have you visited the shop on Level 3? The cantankerous shop keeper is
+    a master of reflective items and can create a device to trap the demons in a
+    weapon that will ultimately lead to your freedom. But she requires certain materials
+    to complete her work, and Level 3 contains none of those materials. Perhaps a
+    visit to Level 4 will provide the illumination you require? Meanwhile, have you
+    discovered the time booster? It\u2019s a green orb, hidden within this level,
+    that adds time \u2013 important to help you fully explore the area!\n\nPress
+    E to continue -->"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8467,10 +8474,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Interaction Point 4
-
-
-    Press E to continue -->'
+  m_text: "Watch out for the acid! If it\u2019s dripping from the ceiling, it\u2019ll
+    burn you to the core. But I guess it just another weird thing to watch out for
+    in this strange, strange world. A world that looks sort of like my own (before
+    I became a shade) but inhabited with demons. Some of the demons here cannot be
+    vaporised with my blaster weapon, they can only be evaded by shrinking \u2026
+    Why do I have a blaster at all? Where did it come from? Who gave it to me, and
+    for what ends? \n\nPress E to continue -->"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -21843,7 +21853,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1885962198541651198, guid: 1d7a1794b7e0149dbb7e20065cd516c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.29999995
+      value: 0.36
       objectReference: {fileID: 0}
     - target: {fileID: 1885962198541651198, guid: 1d7a1794b7e0149dbb7e20065cd516c3, type: 3}
       propertyPath: m_LocalPosition.z
